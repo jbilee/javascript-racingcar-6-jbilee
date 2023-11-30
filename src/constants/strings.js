@@ -7,3 +7,4 @@ export const RESULTS = {
 };
 
 export const WINNER = '최종 우승자 : ';
+export const WINNER_SEPARATOR = ', ';

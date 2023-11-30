@@ -48,11 +48,24 @@ class RaceHandler {
 
       this.getResults();
     }
+
+    return this.getWinners();
   }
 
   getResults() {
-    const statusOfCars = this.#cars.map((car) => car.getCarStatus());
-    OutputView.printRoundResults(statusOfCars);
+    const carsData = this.#cars.map((car) => car.getCarStatus());
+    OutputView.printRoundResults(carsData);
+  }
+
+  getWinners() {
+    const carsData = this.#cars.map((car) => car.getCarStatus());
+    const highestMove = Math.max(...carsData.map((car) => car.moves));
+
+    const winners = carsData
+      .filter((car) => car.moves === highestMove)
+      .map((car) => car.name);
+
+    OutputView.printWinners(winners);
   }
 }
 

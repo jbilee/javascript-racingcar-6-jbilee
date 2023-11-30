@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import { RESULTS, WINNER } from '../constants/strings.js';
+import { RESULTS, WINNER, WINNER_SEPARATOR } from '../constants/strings.js';
 import { printMoveSymbols } from '../utils/utilities.js';
 
 const OutputView = {
@@ -14,6 +14,11 @@ const OutputView = {
     });
 
     Console.print('');
+  },
+
+  printWinners(winners) {
+    const string = winners.join(WINNER_SEPARATOR);
+    Console.print(WINNER + string);
   },
 };
 
