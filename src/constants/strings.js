@@ -1,3 +1,6 @@
+export const CAR_MOVEMENT_SYMBOL = '-';
+export const CAR_NAME_SEPARATOR = ',';
+
 export const RESULTS = {
   title: '\n실행 결과',
   separator: ' : ',

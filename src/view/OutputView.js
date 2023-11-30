@@ -1,5 +1,6 @@
 import { Console } from '@woowacourse/mission-utils';
 import { RESULTS, WINNER } from '../constants/strings.js';
+import { printMoveSymbols } from '../utils/utilities.js';
 
 const OutputView = {
   printResultsTitle() {
@@ -8,7 +9,8 @@ const OutputView = {
 
   printRoundResults(cars) {
     cars.forEach(({ name, moves }) => {
-      Console.print(name + RESULTS.separator + moves);
+      const movesString = printMoveSymbols(moves);
+      Console.print(name + RESULTS.separator + movesString);
     });
 
     Console.print('');

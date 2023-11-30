@@ -1,9 +1,9 @@
 export const CAR_MOVEMENT = {
+  startingMoves: 0,
   randomMin: 0,
   randomMax: 9,
   threshold: 4,
   increment: 1,
-  moveSymbol: '-',
 };
 
 export const REGEX = {

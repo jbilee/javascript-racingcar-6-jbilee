@@ -7,7 +7,7 @@ class Car {
 
   constructor(name) {
     this.#name = name;
-    this.#moves = 0;
+    this.#moves = CAR_MOVEMENT.startingMoves;
   }
 
   makeMove() {
@@ -22,13 +22,7 @@ class Car {
   }
 
   getCarStatus() {
-    let movesString = '';
-
-    for (let i = 0; i < this.#moves; i += 1) {
-      movesString += CAR_MOVEMENT.moveSymbol;
-    }
-
-    return { name: this.#name, moves: movesString };
+    return { name: this.#name, moves: this.#moves };
   }
 }
 
