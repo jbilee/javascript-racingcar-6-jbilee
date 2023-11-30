@@ -20,6 +20,16 @@ class Car {
       this.#moves += CAR_MOVEMENT.increment;
     }
   }
+
+  getCarStatus() {
+    let movesString = '';
+
+    for (let i = 0; i < this.#moves; i += 1) {
+      movesString += CAR_MOVEMENT.moveSymbol;
+    }
+
+    return { name: this.#name, moves: movesString };
+  }
 }
 
 export default Car;
