@@ -9,10 +9,9 @@ class RaceHandler {
 
   constructor() {
     this.#cars = [];
-    this.getRaceInfo();
   }
 
-  async getRaceInfo() {
+  async setNewGame() {
     const carNames = await this.getCarNames();
     carNames.forEach((name) => {
       const newCar = new Car(name);
@@ -20,8 +19,6 @@ class RaceHandler {
     });
 
     this.#rounds = await this.getRoundCount();
-
-    return this.playRounds();
   }
 
   async getCarNames() {
