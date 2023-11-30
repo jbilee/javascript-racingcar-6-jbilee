@@ -4,6 +4,7 @@ import Validate from '../utils/Validate.js';
 
 class RaceHandler {
   #cars;
+  #rounds;
 
   constructor() {
     this.#cars = [];
@@ -12,14 +13,14 @@ class RaceHandler {
 
   async getRaceInfo() {
     const carNames = await this.getCarNames();
-    const roundCount = await this.getRoundCount();
-
     carNames.forEach((name) => {
       const newCar = new Car(name);
       this.#cars.push(newCar);
     });
 
-    
+    this.#rounds = await this.getRoundCount();
+
+    return this.playRounds();
   }
 
   async getCarNames() {
@@ -34,6 +35,14 @@ class RaceHandler {
     const validatedCount = Validate.rounds(roundCount);
 
     return validatedCount;
+  }
+
+  playRounds() {
+    for (let i = 0; i < this.#rounds; i += 1) {
+      this.#cars.forEach((car) => {
+        car.makeMove();
+      });
+    }
   }
 }
 
