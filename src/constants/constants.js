@@ -1,3 +1,10 @@
+export const CAP = {
+  carsMin: 2,
+  carsMax: 10,
+  roundsMin: 1,
+  roundsMax: 1000,
+};
+
 export const CAR_MOVEMENT = {
   startingMoves: 0,
   randomMin: 0,
@@ -7,6 +14,6 @@ export const CAR_MOVEMENT = {
 };
 
 export const REGEX = {
-  name: /^(?!\s+$).{1,5}$/,
-  round: /^[1-9]\d*$/,
+  nameChars: /^(?!\s+$).{1,5}$/,
+  roundChars: /^[1-9]\d*$/,
 };

@@ -23,14 +23,15 @@ class RaceHandler {
 
   async getCarNames() {
     const carNames = await InputView.readCarNames();
-    const validatedNames = Validate.carNames(carNames);
+    Validate.nameFormat(carNames);
+    const validatedNames = Validate.carName(carNames);
 
     return validatedNames;
   }
 
   async getRoundCount() {
     const roundCount = await InputView.readRoundCount();
-    const validatedCount = Validate.rounds(roundCount);
+    const validatedCount = Validate.round(roundCount);
 
     return validatedCount;
   }
