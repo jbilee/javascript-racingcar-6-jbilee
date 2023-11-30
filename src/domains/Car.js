@@ -1,7 +1,9 @@
 class Car {
+  #name;
   #moves;
 
-  constructor() {
+  constructor(name) {
+    this.#name = name;
     this.#moves = 0;
   }
 }

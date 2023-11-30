@@ -6,6 +6,7 @@ class RaceHandler {
   #cars;
 
   constructor() {
+    this.#cars = [];
     this.getRaceInfo();
   }
 
@@ -13,25 +14,26 @@ class RaceHandler {
     const carNames = await this.getCarNames();
     const roundCount = await this.getRoundCount();
 
-    this.#cars = [];
-    const newCar = new Car();
-    this.#cars.push(newCar);
+    carNames.forEach((name) => {
+      const newCar = new Car(name);
+      this.#cars.push(newCar);
+    });
+
+    
   }
 
   async getCarNames() {
     const carNames = await InputView.readCarNames();
+    const validatedNames = Validate.carNames(carNames);
 
-    Validate.carNames(carNames);
-
-    return carNames;
+    return validatedNames;
   }
 
   async getRoundCount() {
     const roundCount = await InputView.readRoundCount();
+    const validatedCount = Validate.rounds(roundCount);
 
-    Validate.rounds(roundCount);
-
-    return roundCount;
+    return validatedCount;
   }
 }
 

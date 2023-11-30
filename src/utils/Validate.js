@@ -8,12 +8,16 @@ const Validate = {
         throw new Error('[ERROR]');
       }
     });
+
+    return names;
   },
 
   rounds(input) {
     if (!REGEX.round.test(input)) {
       throw new Error('[ERROR]');
     }
+
+    return Number(input);
   },
 };
 
