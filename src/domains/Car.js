@@ -16,7 +16,7 @@ class Car {
       CAR_MOVEMENT.randomMax,
     );
 
-    if (randomNumber > CAR_MOVEMENT.threshold) {
+    if (randomNumber >= CAR_MOVEMENT.threshold) {
       this.#moves += CAR_MOVEMENT.increment;
     }
   }

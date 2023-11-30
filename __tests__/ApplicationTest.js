@@ -75,6 +75,6 @@ describe('자동차 경주 게임', () => {
     const app = new App();
 
     // then
-    await expect(app.getNumberOfRounds()).rejects.toThrow('[ERROR]');
+    await expect(app.play()).rejects.toThrow('[ERROR]');
   });
 });
