@@ -6,7 +6,7 @@ const mockRandom = (value) => {
   Random.pickNumberInRange.mockReturnValue(value);
 };
 
-describe('Car 클래스 메소드 테스트', () => {
+describe('Car 객체의 전진 메소드 테스트', () => {
   test('랜덤값이 4 미만이면 전진하지 않는다', () => {
     const RANDOM_VALUE = 3;
 

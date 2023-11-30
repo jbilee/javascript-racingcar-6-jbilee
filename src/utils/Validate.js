@@ -28,11 +28,11 @@ const Validate = {
   },
 
   round(input) {
-    if (!REGEX.roundChars.test(input)) {
-      throw new Error(ERRORS.invalidRoundNumber);
-    }
     if (Number(input) < CAP.roundsMin || Number(input) > CAP.roundsMax) {
       throw new Error(ERRORS.invalidRoundCount);
+    }
+    if (!REGEX.roundChars.test(input)) {
+      throw new Error(ERRORS.invalidRoundFormat);
     }
 
     return Number(input);
