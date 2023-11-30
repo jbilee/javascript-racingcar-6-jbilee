@@ -51,27 +51,39 @@ describe('이름 입력값 검증 기능 테스트', () => {
 
       const handler = new RaceHandler();
 
-      await expect(handler.getCarNames()).rejects.toThrow(ERRORS.invalidNameCount);
+      await expect(handler.getCarNames()).rejects.toThrow(
+        ERRORS.invalidNameCount,
+      );
     },
   );
 });
 
 describe('라운드 횟수 입력값 검증 기능 테스트', () => {
-  test.each([[['abc'], ['@#^'], ['1,234'], ['12.3']]])('숫자나 정수 형식이 아닐 경우 예외 발생', async (input) => {
-    mockQuestions(input);
+  test.each([[['abc'], ['@#^'], ['1,234'], ['12.3']]])(
+    '숫자나 정수 형식이 아닐 경우 예외 발생',
+    async (input) => {
+      mockQuestions(input);
 
-    const handler = new RaceHandler();
+      const handler = new RaceHandler();
 
-    await expect(handler.getRoundCount()).rejects.toThrow(ERRORS.invalidRoundFormat);
-  });
+      await expect(handler.getRoundCount()).rejects.toThrow(
+        ERRORS.invalidRoundFormat,
+      );
+    },
+  );
 
-  test.each([[['0'], ['1001']]])('라운드가 1회 미만이거나 1000회를 초과할 경우 예외 발생', async (input) => {
-    mockQuestions(input);
+  test.each([[['0'], ['1001']]])(
+    '라운드가 1회 미만이거나 1000회를 초과할 경우 예외 발생',
+    async (input) => {
+      mockQuestions(input);
 
-    const handler = new RaceHandler();
+      const handler = new RaceHandler();
 
-    await expect(handler.getRoundCount()).rejects.toThrow(ERRORS.invalidRoundCount);
-  });
+      await expect(handler.getRoundCount()).rejects.toThrow(
+        ERRORS.invalidRoundCount,
+      );
+    },
+  );
 });
 
 describe('우승자 출력 메소드 테스트', () => {
