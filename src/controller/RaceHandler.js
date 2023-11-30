@@ -11,6 +11,7 @@ class RaceHandler {
 
   async getRaceInfo() {
     const carNames = await this.getCarNames();
+    const roundCount = await this.getRoundCount();
 
     this.#cars = [];
     const newCar = new Car();
@@ -23,6 +24,14 @@ class RaceHandler {
     Validate.carNames(carNames);
 
     return carNames;
+  }
+
+  async getRoundCount() {
+    const roundCount = await InputView.readRoundCount();
+
+    Validate.rounds(roundCount);
+
+    return roundCount;
   }
 }
 

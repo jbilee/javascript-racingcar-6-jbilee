@@ -9,6 +9,12 @@ const Validate = {
       }
     });
   },
+
+  rounds(input) {
+    if (!REGEX.round.test(input)) {
+      throw new Error('[ERROR]');
+    }
+  },
 };
 
 export default Validate;
